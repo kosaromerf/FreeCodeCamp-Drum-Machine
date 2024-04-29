@@ -1,35 +1,86 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import { Container } from "react-bootstrap";
+import "./index.css";
+import Drum from "./Drum";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [displayedId, setDisplayedId] = useState("");
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div
+      id="fullPage"
+      className="d-flex justify-content-center align-items-center"
+    >
+      <Container id="drum-machine" className="">
+        <Drum
+          className="drum-pad"
+          id="heater1"
+          content="Q"
+          setDisplayedId={setDisplayedId}
+          link="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3"
+        />
+        <Drum
+          className="drum-pad"
+          id="heater2"
+          content="W"
+          setDisplayedId={setDisplayedId}
+          link="https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3"
+        />
+        <Drum
+          className="drum-pad"
+          id="heater3"
+          content="E"
+          setDisplayedId={setDisplayedId}
+          link="https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3"
+        />
+        <div id="empty1"></div>
+        <Drum
+          className="drum-pad"
+          id="heater4"
+          content="A"
+          setDisplayedId={setDisplayedId}
+          link="https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3"
+        />
+        <Drum
+          className="drum-pad"
+          id="clap"
+          content="S"
+          setDisplayedId={setDisplayedId}
+          link="https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3"
+        />
+        <Drum
+          className="drum-pad"
+          id="open-hh"
+          content="D"
+          setDisplayedId={setDisplayedId}
+          link="https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3"
+        />
+        <div id="display">{displayedId}</div>
+        <Drum
+          className="drum-pad"
+          id="kick-n-hat"
+          content="Z"
+          setDisplayedId={setDisplayedId}
+          link="https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3"
+        />
+        <Drum
+          className="drum-pad"
+          id="kick"
+          content="X"
+          setDisplayedId={setDisplayedId}
+          link="https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3"
+        />
+        <Drum
+          className="drum-pad"
+          id="closed-hh"
+          content="C"
+          setDisplayedId={setDisplayedId}
+          link="https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3"
+        />
+
+        <div id="empty2"></div>
+      </Container>
+    </div>
+  );
 }
 
-export default App
+export default App;
